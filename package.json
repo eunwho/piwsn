@@ -1,5 +1,5 @@
 {
-  "name": "piWsn",
+  "name": "piwsn",
   "version": "0.0.0",
   "description": "Wireless Sensor Network using raspberry Pi",
   "main": "app.js",
@@ -20,5 +20,14 @@
   "license": "ISC",
   "dependencies": {
     "serialport": "^4.0.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eunwho/piwsn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eunwho/piwsn/issues"
+  },
+  "homepage": "https://github.com/eunwho/piwsn#readme"
 }

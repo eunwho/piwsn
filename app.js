@@ -1,6 +1,9 @@
 //--- mongoose 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/wsnv0');
+
+mongoose.Promise = global.Promise; // 2017.03.24
+
+mongoose.connect('mongodb://localhost/wsnv1');
 
 var db = mongoose.connection;
 
@@ -33,25 +36,25 @@ port.on('open',function(err){
 //--- socket.io for sending to server fo Wireless Sensor Net 
 
 var io = require('socket.io-client');
-var socket = io.connect('http://192.168.0.119:8080', {reconnect: true});
+var socket = io.connect('http://192.168.0.10:7532', {reconnect: true});
 
 // Add a connect listener
 socket.on('connect', function (socket) {
     console.log('Connected!');
 });
 
-
 port.on('data',function (data){
 
 	socket.emit('CH0', 'me', data);
 
     console.log('RXD  : '+data);
-	
+/*
 	var wsnIn = new wsnDB1({wsnData:data});
 	wsnIn.save( function( err, wsnIn ){
 		if(err) return console.error(err);	
 	    console.log('SAVED: '+data);
 	});	
+*/
 });
 
 port.on('error', function(err) {
